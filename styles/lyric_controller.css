@@ -1,0 +1,66 @@
+html {
+	/*Copy from [Hux 黄玄's Github](https://github.com/Huxpro/huxpro.github.io)*/
+	font-family: -apple-system, -apple-system-font, "Helvetica Neue", "Arial", "PingFang SC", "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "Microsoft JhengHei", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", "WenQuanYi Micro Hei", SimSun, sans-serif;
+}
+body {
+    background: #333;
+}
+
+body.disableScroll {
+    overflow: hidden;
+}
+
+.tip-overlay {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    display: none;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, .42);
+    -webkit-backdrop-filter: blur(30px);
+}
+
+noscript.tip-overlay {
+    display: block;
+}
+
+.tip-container {
+    color: #ffffff;
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 0em 1em;
+    transform: translateY(-50%);
+    position: relative;
+    top: 30%;
+}
+
+.tip-container a {
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: 1px solid #08C;
+    color: #08C;
+}
+
+.tip-container a + a {
+    margin-left: 2em;
+}
+
+.wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    max-width: 414px;
+    min-width: 320px;
+    height: 736px;
+    transform: translate(-50%, -50%);
+    background-color: #aaa;
+}
+
+
