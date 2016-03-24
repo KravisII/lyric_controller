@@ -21,6 +21,7 @@ var LyricController = {
 		o.setNodeReferences = function () {
 			// lyric-controller: 
 			this.lyricContainer = document.querySelector(".lyric-container");
+			this.lyricText = document.querySelector(".lyric-text");
 		};
 
 		o.dataInitialize = function () {
@@ -29,12 +30,12 @@ var LyricController = {
 
 		o.addLyrics = function () {
 			var _lrcStr = "<p>" + audio_lrc[0].content + "</p>";
-			
+
 			for (var i = 1; i < audio_lrc.length; i++) {
 				_lrcStr += "<p>" + audio_lrc[i].content + "</p>";
 			}
 			// console.log(_lrcStr);
-			this.lyricContainer.innerHTML += _lrcStr;
+			this.lyricText.innerHTML += _lrcStr;
 		};
 
 		// o.addEventListeners = function () {};

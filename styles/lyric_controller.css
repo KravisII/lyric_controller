@@ -82,17 +82,40 @@ noscript.tip-overlay {
     position: relative;
     z-index: 1;
     color: #ffffff;
+
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.42);
     text-align: center;
     height: 100%;
+}
 
-    overflow-y: scroll;
+.lyric-controller-inner {
+    height: 100%;
+}
+
+.lyric-container {
+    background-color: rgba(0, 0, 0, 0.6);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.lyric-container > div {
+    flex: 1;
+}
+
+.lyric-info {
+}
+
+.lyric-text {
 }
 
 /* TEMP */
 .audio-source {
     width: 100%;
-    margin-top: 20px;
+    left: 0;
+    top: 100%;
+    transform: translateY(-25px);
+    position: absolute;
 }
 
 
