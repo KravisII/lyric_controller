@@ -10,7 +10,7 @@ var LyricController = {
 			console.log("Start");
 			this.setNodeReferences();
 			this.dataInitialize();
-			this.addEventListeners();
+			// this.addEventListeners();
 		};
 
 		// o.deviceDetection = function () {};
@@ -24,12 +24,20 @@ var LyricController = {
 		};
 
 		o.dataInitialize = function () {
-
+			this.addLyrics();
 		};
 
-		o.addEventListeners = function () {
-
+		o.addLyrics = function () {
+			var _lrcStr = "<p>" + audio_lrc[0].content + "</p>";
+			
+			for (var i = 1; i < audio_lrc.length; i++) {
+				_lrcStr += "<p>" + audio_lrc[i].content + "</p>";
+			}
+			// console.log(_lrcStr);
+			this.lyricContainer.innerHTML += _lrcStr;
 		};
+
+		// o.addEventListeners = function () {};
 
 		o.initialize();
 		return o;

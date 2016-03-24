@@ -84,6 +84,9 @@ noscript.tip-overlay {
     color: #ffffff;
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.42);
     text-align: center;
+    height: 100%;
+
+    overflow-y: scroll;
 }
 
 /* TEMP */
