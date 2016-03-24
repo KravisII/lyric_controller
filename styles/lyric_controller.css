@@ -100,13 +100,15 @@ noscript.tip-overlay {
 }
 
 .lyric-container > div {
-    flex: 1;
+    
 }
 
 .lyric-info {
+
 }
 
 .lyric-text {
+    overflow: scroll;
 }
 
 /* TEMP */
