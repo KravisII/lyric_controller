@@ -6,10 +6,10 @@
 
       完成歌词显示界面的基本 CSS 布局。
 
-- [ ] #### Mar 26, 2016 Version 1.1
+- [x] #### Mar 26, 2016 Version 1.1
 
       显示当前歌词。
 
 ### 待优化
-- [ ] `audioSource.playbackRate == 8` 时可能会漏掉部分歌词；
-- [ ] 未精确计算每句歌词的动画时间。
+- [x] `audioSource.playbackRate == 8` 时可能会漏掉部分歌词；
+- [x] 未精确计算每句歌词的动画时间。

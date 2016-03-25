@@ -61,10 +61,12 @@ var LyricController = {
 		};
 
 		o.showCurrentLrc = function (i) {
+			var _duration = (parseFloat(audio_lrc[i].endTime) - parseFloat(audio_lrc[i].startTime) + 2) / Math.abs(o.audioSource.playbackRate);
+			o.lyrics[i].style.animationDuration =  _duration + "s";
 			o.lyrics[i].className = "currentLrc";
 			window.setTimeout(function () {
 				o.clearCurrentLrc(i);
-			}, 5000);
+			}, _duration * 1000);
 		};
 
 		o.clearCurrentLrc = function (i) {

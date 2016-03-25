@@ -58,8 +58,9 @@ noscript.tip-overlay {
     width: 100%;
     max-width: 414px;
     min-width: 320px;
-    height: 736px;
+    /* height: 736px; */
     /* height: 480px; */
+    height: 100%;
     transform: translate(-50%, -50%);
     overflow: hidden;
     background-color: #aaa;
@@ -128,29 +129,17 @@ noscript.tip-overlay {
 
 .lyric-text > p.currentLrc {
     animation-name: moveLrc;
-    animation-timing-function: Linear;
-    animation-duration: 5s;
-    /* opacity: 1; */
+    animation-timing-function: linear;
+    /* animation-duration: 5s; */
 }
 
 @keyframes moveLrc {
-    0% {
-        opacity: 0;
-    }
-
-    20% {
-        opacity: 1;
-    }
-
-    100% {
-        bottom: 100%;
-    }
-}
-
-.lyric-text p:nth-child(2) {
-    /* top: 90%; */
-    /* bottom: 25px; */
-    /* opacity: 1; */
+    0% {opacity: 0;}
+    /* 20% {opacity: 0;} */
+    30% {opacity: 1;}
+    70% {opacity: 1;}
+    95% {opacity: 0;}
+    100% {bottom: 100%;}
 }
 
 /* TEMP */
