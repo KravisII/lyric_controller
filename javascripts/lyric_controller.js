@@ -4,6 +4,7 @@ var LyricController = {
 		// properties
 		o.name = "LyricController";
 		o.audioSource = document.querySelector(".audio-source");
+		o.lrcStack = [];
 
 		// methods
 		o.initialize = function () {
@@ -22,6 +23,7 @@ var LyricController = {
 			// lyric-controller: 
 			this.lyricContainer = document.querySelector(".lyric-container");
 			this.lyricText = document.querySelector(".lyric-text");
+			this.lyrics = null;
 		};
 
 		o.dataInitialize = function () {
@@ -35,6 +37,8 @@ var LyricController = {
 				_lrcStr += "<p>" + audio_lrc[i].content + "</p>";
 			}
 			this.lyricText.innerHTML += _lrcStr;
+
+			this.lyrics = document.querySelectorAll(".lyric-text > p");
 		};
 
 		o.addEventListeners = function () {
@@ -48,14 +52,28 @@ var LyricController = {
 					o.audioSource.currentTime >= parseFloat(audio_lrc[i].startTime)) {
 					o.showCurrentLrc(i);
 				}
-			}	
+			}
 		};
 
 		o.showCurrentLrc = function (i) {
-			// var selectorStr = ".lyric-text p:nth-child(" + i + ")";
-			// var lrc = document.querySelector(selectorStr);
-			// lrc.style.opacity = 1;
-			console.log(i + ":	" + audio_lrc[i].content);
+			
+			ObjClass.addClass(this.lyrics[i], "currentLrc");
+
+			if (this.lrcStack.length == 5) {
+				this.clearLrcStack();
+			}
+			
+			if (this.lrcStack[this.lrcStack.length-1] != i) {
+				this.lrcStack.push(i);
+			}
+			
+			console.log(this.lrcStack);
+		};
+
+		o.clearLrcStack = function () {
+			var i = this.lrcStack.shift();
+			ObjClass.removeClass(this.lyrics[i], "currentLrc");
+
 		};
 
 		o.initialize();

@@ -13,7 +13,7 @@ audio_lrc = [
 	{startTime: "062.384", endTime: "067.743", content: "And I'll leave him just for you"},
 	{startTime: "070.224", endTime: "076.169", content: "And I'll shiver like I used to"},
 	{startTime: "077.562", endTime: "083.803", content: "Just for you"},
-	{startTime: "087.949", endTime: "089.612", content: "And we stole"},
+	{startTime: "087.881", endTime: "090.001", content: "And we stole"},
 	{startTime: "090.348", endTime: "094.931", content: "Every moment we had to make the other one feel bad"},
 	{startTime: "095.666", endTime: "099.804", content: "And we hoped that we could be what we knew"},
 	{startTime: "100.106", endTime: "102.516", content: "We'd never turn out to be real"},

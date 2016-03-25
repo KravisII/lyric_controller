@@ -119,8 +119,16 @@ noscript.tip-overlay {
 
 .lyric-text > p {
     position: absolute;
+    bottom: 25px;
     width: 100%;
     opacity: 0;
+
+    transition: opacity 3s ease-in-out, bottom 3s ease-in-out;
+}
+
+.lyric-text > p.currentLrc {
+    bottom: auto;
+    opacity: 1;
 }
 
 .lyric-text p:nth-child(2) {
