@@ -123,12 +123,28 @@ noscript.tip-overlay {
     width: 100%;
     opacity: 0;
 
-    transition: opacity 3s ease-in-out, bottom 3s ease-in-out;
+    /* transition: opacity 0.2s ease-in-out; */
 }
 
 .lyric-text > p.currentLrc {
-    bottom: auto;
-    opacity: 1;
+    animation-name: moveLrc;
+    animation-timing-function: Linear;
+    animation-duration: 5s;
+    /* opacity: 1; */
+}
+
+@keyframes moveLrc {
+    0% {
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        bottom: 100%;
+    }
 }
 
 .lyric-text p:nth-child(2) {

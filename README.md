@@ -11,4 +11,5 @@
       显示当前歌词。
 
 ### 待优化
-- [ ] `audioSource.playbackRate == 8` 时可能会漏掉部分歌词。
+- [ ] `audioSource.playbackRate == 8` 时可能会漏掉部分歌词；
+- [ ] 未精确计算每句歌词的动画时间。

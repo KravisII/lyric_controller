@@ -5,6 +5,7 @@ var LyricController = {
 		o.name = "LyricController";
 		o.audioSource = document.querySelector(".audio-source");
 		o.lrcStack = [];
+		o.lrcFlags = Array();
 
 		// methods
 		o.initialize = function () {
@@ -32,9 +33,11 @@ var LyricController = {
 
 		o.addLyrics = function () {
 			var _lrcStr = "<p>" + audio_lrc[0].content + "</p>";
+			this.lrcFlags[0] = false;
 
 			for (var i = 1; i < audio_lrc.length; i++) {
 				_lrcStr += "<p>" + audio_lrc[i].content + "</p>";
+				this.lrcFlags[i] = false;
 			}
 			this.lyricText.innerHTML += _lrcStr;
 
@@ -49,31 +52,24 @@ var LyricController = {
 			// console.log(o.audioSource.currentTime);
 			for (var i = 0; i < audio_lrc.length; i++) {
 				if (o.audioSource.currentTime <=  parseFloat(audio_lrc[i].endTime) &&
-					o.audioSource.currentTime >= parseFloat(audio_lrc[i].startTime)) {
+					o.audioSource.currentTime >= parseFloat(audio_lrc[i].startTime) &&
+					o.lrcFlags[i] == false) {
+					o.lrcFlags[i] = true;
 					o.showCurrentLrc(i);
 				}
 			}
 		};
 
 		o.showCurrentLrc = function (i) {
-			
-			ObjClass.addClass(this.lyrics[i], "currentLrc");
-
-			if (this.lrcStack.length == 5) {
-				this.clearLrcStack();
-			}
-			
-			if (this.lrcStack[this.lrcStack.length-1] != i) {
-				this.lrcStack.push(i);
-			}
-			
-			console.log(this.lrcStack);
+			o.lyrics[i].className = "currentLrc";
+			window.setTimeout(function () {
+				o.clearCurrentLrc(i);
+			}, 5000);
 		};
 
-		o.clearLrcStack = function () {
-			var i = this.lrcStack.shift();
-			ObjClass.removeClass(this.lyrics[i], "currentLrc");
-
+		o.clearCurrentLrc = function (i) {
+			o.lyrics[i].removeAttribute("class");
+			o.lrcFlags[i] = false;
 		};
 
 		o.initialize();
