@@ -10,7 +10,7 @@ var LyricController = {
 			console.log("Start");
 			this.setNodeReferences();
 			this.dataInitialize();
-			// this.addEventListeners();
+			this.addEventListeners();
 		};
 
 		// o.deviceDetection = function () {};
@@ -34,11 +34,29 @@ var LyricController = {
 			for (var i = 1; i < audio_lrc.length; i++) {
 				_lrcStr += "<p>" + audio_lrc[i].content + "</p>";
 			}
-			// console.log(_lrcStr);
 			this.lyricText.innerHTML += _lrcStr;
 		};
 
-		// o.addEventListeners = function () {};
+		o.addEventListeners = function () {
+			this.audioSource.addEventListener("timeupdate", this.onTimeUpdate);
+		};
+
+		o.onTimeUpdate = function () {
+			// console.log(o.audioSource.currentTime);
+			for (var i = 0; i < audio_lrc.length; i++) {
+				if (o.audioSource.currentTime <=  parseFloat(audio_lrc[i].endTime) &&
+					o.audioSource.currentTime >= parseFloat(audio_lrc[i].startTime)) {
+					o.showCurrentLrc(i);
+				}
+			}	
+		};
+
+		o.showCurrentLrc = function (i) {
+			// var selectorStr = ".lyric-text p:nth-child(" + i + ")";
+			// var lrc = document.querySelector(selectorStr);
+			// lrc.style.opacity = 1;
+			console.log(i + ":	" + audio_lrc[i].content);
+		};
 
 		o.initialize();
 		return o;

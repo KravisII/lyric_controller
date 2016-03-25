@@ -59,6 +59,7 @@ noscript.tip-overlay {
     max-width: 414px;
     min-width: 320px;
     height: 736px;
+    /* height: 480px; */
     transform: translate(-50%, -50%);
     overflow: hidden;
     background-color: #aaa;
@@ -75,7 +76,7 @@ noscript.tip-overlay {
     transform: translate(-50%, -50%);
     background: url("../others/Like%20I%20Used%20To.jpg") no-repeat 50% 50%;
     background-size: cover;
-    filter: blur(10px);
+    filter: blur(10px) brightness(0.5);
 }
 
 .lyric-controller {
@@ -83,7 +84,7 @@ noscript.tip-overlay {
     z-index: 1;
     color: #ffffff;
 
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.42);
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.42); /* 会降低性能 */
     text-align: center;
     height: 100%;
 }
@@ -93,31 +94,48 @@ noscript.tip-overlay {
 }
 
 .lyric-container {
-    background-color: rgba(0, 0, 0, 0.6);
+    /* background-color: rgba(0, 0, 0, 0.6); */
     height: 100%;
     display: flex;
     flex-direction: column;
+    position: relative;
+    z-index: 0;
 }
 
 .lyric-container > div {
-    
+
 }
 
 .lyric-info {
-
+    background-color: rgba(0, 0, 0, 0.4);
+    flex-grow: 0;
 }
 
 .lyric-text {
     overflow: scroll;
+    position: relative;
+    flex-grow: 1;
+}
+
+.lyric-text > p {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+}
+
+.lyric-text p:nth-child(2) {
+    /* top: 90%; */
+    /* bottom: 25px; */
+    /* opacity: 1; */
 }
 
 /* TEMP */
 .audio-source {
     width: 100%;
     left: 0;
-    top: 100%;
-    transform: translateY(-25px);
+    bottom: 0;
     position: absolute;
+    z-index: 1;
 }
 
 
