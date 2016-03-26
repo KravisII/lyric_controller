@@ -76,11 +76,8 @@ noscript.tip-overlay {
     top: -10%;
     left: -10%;
     z-index: 0;
-    /* background: url("../others/Like%20I%20Used%20To_blur10.jpg") no-repeat 50% 50%; */
     background: url("../others/Like%20I%20Used%20To.jpg") no-repeat 50% 50%;
     background-size: cover;
-    /* filter: blur(10px) brightness(0.5); */
-    /* filter: brightness(0.5); */
     -webkit-filter: blur(10px);
     filter: blur(10px);
 }
@@ -89,8 +86,6 @@ noscript.tip-overlay {
     position: relative;
     z-index: 1;
     color: #ffffff;
-
-    /* 会降低性能 */
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.42); 
     text-align: center;
     height: 100%;
@@ -99,56 +94,53 @@ noscript.tip-overlay {
 
 .lyric-controller-inner {
     height: 100%;
-}
-
-.lyric-container {
-    height: 100%;
     display: flex;
     flex-direction: column;
     position: relative;
     z-index: 0;
 }
 
-.lyric-container > div {
-
-}
-
 .lyric-info {
     background-color: rgba(0, 0, 0, 0.4);
     flex: none;
+    position: relative;
 }
 
 .lyric-text {
     flex: 1;
+    /*overflow: hidden;*/
+    position: relative;
 }
 
-.lyric-text > p {
-    position: absolute;
-    bottom: 0%;
-    width: 100%;
-    opacity: 0;
-    will-change: transform, opacity;
-}
+    .lyric-text > p {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        opacity: 0;
+        will-change: transform, opacity;
+    }
 
-.lyric-text > p.currentLrc {
-    animation-name: moveLrc;
-    animation-timing-function: linear;
-}
+    .lyric-text > p.currentLrc {
+        animation-name: moveLrc;
+        animation-timing-function: linear;
+    }
 
 @keyframes moveLrc {
-    0%   { transform: translateY(-10vh); opacity: 0;}
+    0%   { transform: translateY(450%); opacity: 0;}
     30%  { opacity: 1;}
     70%  { opacity: 1;}
-    100% { transform: translateY(-60vh); opacity: 0;}
+    100% { transform: translateY(-650%); opacity: 0;}
 }
 
 /* TEMP */
 .audio-source {
     width: 100%;
-    left: 0;
-    bottom: 0;
-    position: absolute;
-    z-index: 1;
+    height: 60px;
+    flex: none;
+    background-color: rgba(255,255,255,0.2);
+    -webkit-backdrop-filter: blur(5px);
+    position: relative;
+    z-index: 100;
 }
 
 

@@ -8,11 +8,12 @@
 - [x] #### Mar 25, 2016 Version 1.1
 	显示当前歌词。
 
-- [ ] #### Mar 26, 2016 Version 1.2
+- [ ] #### Mar 28, 2016 Version 1.2
 	各项优化
 
 
 ### 待优化
 - [x] `audioSource.playbackRate == 8` 时可能会漏掉部分歌词；
 - [x] 未精确计算每句歌词的动画时间；
-- [ ] 优化歌词定位算法及 CSS 动画。
+- [x] 优化歌词定位算法及 CSS 动画。
+	CSS Animation 中对的 `button` 属性的修改导致 DOM 重布局，使动画帧率下降严重，修改 button 属性为 `transform: translateY(-60vh)` 后正常。

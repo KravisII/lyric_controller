@@ -1,47 +1,43 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
-<head>
-	<meta charset="UTF-8">
-	<title>Lyric Controller</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<link rel="stylesheet" href="./styles/normalize.css">
-	<link rel="stylesheet" href="./styles/lyric_controller.css">
-</head>
-<body>
-	<noscript class="tip-overlay">
-		<div class="tip-container">
-			<h2>JavaScript 已被禁用</h2>
-			<p>如需获得完整体验，请启用浏览器中的 Javascript。</p>
+	<head>
+		<meta charset="UTF-8">
+		<title>Lyric Controller</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link rel="stylesheet" href="./styles/normalize.css">
+		<link rel="stylesheet" href="./styles/lyric_controller.css">
+	</head>
+	<body>
+		<noscript class="tip-overlay">
+			<div class="tip-container">
+				<h2>JavaScript 已被禁用</h2>
+				<p>如需获得完整体验，请启用浏览器中的 Javascript。</p>
+			</div>
+		</noscript>
+		<div class="tip-overlay">
+			<div class="tip-container">
+				<h2>注意</h2>
+				<p>您即将访问的页面需要加载较大文件，若您正在使用蜂窝数据网络，请注意流量使用状况。</p>
+				<a href="#" class="cancel">取消</a>
+				<a href="#" class="continue">继续</a>
+			</div>
 		</div>
-	</noscript>
-	<div class="tip-overlay">
-		<div class="tip-container">
-			<h2>注意</h2>
-			<p>您即将访问的页面需要加载较大文件，若您正在使用蜂窝数据网络，请注意流量使用状况。</p>
-			<a href="#" class="cancel">取消</a>
-			<a href="#" class="continue">继续</a>
-		</div>
-	</div>
-	<div class="wrapper">
-		<!-- <div class="wrapper-background"></div> -->
-		<div class="lyric-controller">
-			<div class="lyric-controller-inner">
-				<audio title="Shiver - Lucy Rose" src="./others/Lucy Rose - Shiver.mp3" class="audio-source" preload="none" controls></audio>
-				<div class="lyric-container">
+		<div class="wrapper">
+			<div class="lyric-controller">
+				<div class="lyric-controller-inner">
+					
 					<div class="lyric-info">
 						<h1 class="lyric-title">Shiver - Lucy Rose</h1>
 						<h1 class="lyric-album">Like I Used To</h1>
 					</div>
-					<div class="lyric-text">
-						
-					</div>
+					<div class="lyric-text"></div>
+					<audio title="Shiver - Lucy Rose" src="./others/Lucy Rose - Shiver.mp3" class="audio-source" preload="none" controls></audio>
 				</div>
+				<div class="lyric-controller-loading"></div>
 			</div>
-			<div class="lyric-controller-loading"></div>
 		</div>
-	</div>
-</body>
-<script src="./javascripts/plugins.js"></script>
-<script src="./javascripts/audio_lrc.js"></script>
-<script src="./javascripts/lyric_controller.js"></script>
+	</body>
+	<script src="./javascripts/plugins.js"></script>
+	<script src="./javascripts/audio_lrc.js"></script>
+	<script src="./javascripts/lyric_controller.js"></script>
 </html>
