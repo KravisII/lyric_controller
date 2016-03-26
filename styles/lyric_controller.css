@@ -76,10 +76,12 @@ noscript.tip-overlay {
     left: 50%;
     transform: translate(-50%, -50%);
     background: url("../others/Like%20I%20Used%20To.jpg") no-repeat 50% 50%;
+    /* background: url("../others/Like%20I%20Used%20To_blur10.jpg") no-repeat 50% 50%; */
     background-size: cover;
     /* filter: blur(10px) brightness(0.5); */
     /* filter: brightness(0.5); */
-    filter: blur(5px);
+    -webkit-filter: blur(10px);
+    filter: blur(10px);
 }
 
 .lyric-controller {
@@ -124,10 +126,11 @@ noscript.tip-overlay {
 
 .lyric-text > p {
     position: absolute;
-    bottom: 25px;
+    /* bottom: 25px; */
+    bottom: 40%;
     width: 100%;
     opacity: 0;
-
+    will-change: bottom, opacity;
     /* transition: opacity 0.2s ease-in-out; */
 }
 
@@ -141,8 +144,9 @@ noscript.tip-overlay {
     /* 20% {opacity: 0;} */
     30% {opacity: 1;}
     70% {opacity: 1;}
-    95% {opacity: 0;}
-    100% {bottom: 100%;}
+    /* 95% {opacity: 0;} */
+    /* 100% {bottom: 100%;} */
+    100% {bottom: 70%; opacity: 0;}
 }
 
 /* TEMP */

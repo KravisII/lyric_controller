@@ -7,6 +7,7 @@ var LyricController = {
 		o.lrcStack = [];
 		o.lrcFlags = Array();
 		o.maxDuration = 0;
+		// o.finded = false;
 
 		// methods
 		o.initialize = function () {
@@ -60,26 +61,48 @@ var LyricController = {
 		};
 
 		o.onTimeUpdate = function () {
-			o.findCurrentLrc();
+			// if (!o.finded) {
+				o.findCurrentLrc();
+			// }
 		};
 
 		o.findCurrentLrc = function () {
-			for (var i = 0; i < audio_lrc.length; i++) {
-				if (o.audioSource.currentTime <=  parseFloat(audio_lrc[i].endTime) &&
-					o.audioSource.currentTime >= parseFloat(audio_lrc[i].startTime) &&
-					o.lrcFlags[i] == false) {
-					o.lrcFlags[i] = true;
+			for (var i = audio_lrc.length - 1; i >= 0; i--) {
+				console.log("FINDDING");
+				if (audio_lrc[i].endTime >= o.audioSource.currentTime && audio_lrc[i].startTime <= o.audioSource.currentTime) {
+					// o.finded = true;
+					o.audioSource.removeEventListener("timeupdate", o.onTimeUpdate);
+					console.log("Set finded flag to true");
+
 					o.showCurrentLrc(i);
+					window.setTimeout( function () {
+						o.audioSource.addEventListener("timeupdate", o.onTimeUpdate);
+						// console.log("Set finded flag to false");
+					}, ((audio_lrc[i].endTime - o.audioSource.currentTime) / Math.abs(o.audioSource.playbackRate)) * 1000);
+
 					break;
 				}
 			}
-		}
+			// for (var i = 0; i < audio_lrc.length; i++) {
+			// 	console.log("findding");
+			// 	if (o.audioSource.currentTime <=  parseFloat(audio_lrc[i].endTime) &&
+			// 		o.audioSource.currentTime >= parseFloat(audio_lrc[i].startTime) &&
+			// 		o.lrcFlags[i] == false) {
+			// 		o.lrcFlags[i] = true;
+			// 		o.finded = true;
+			// 		o.showCurrentLrc(i);
+			// 		console.log("finded");
+			// 		break;
+			// 	}
+			// }
+		};
 
 		o.showCurrentLrc = function (i) {
 			o.lyrics[i].className = "currentLrc";
 			window.setTimeout(function () {
 				o.clearCurrentLrc(i);
 			}, o.maxDuration);
+			// o.finded = false;
 		};
 
 		o.clearCurrentLrc = function (i) {
