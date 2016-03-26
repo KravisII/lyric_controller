@@ -6,10 +6,10 @@ var LyricController = {
 		o.audioSource = document.querySelector(".audio-source");
 		o.lrcStack = [];
 		o.lrcFlags = Array();
+		o.maxDuration = 0;
 
 		// methods
 		o.initialize = function () {
-			console.log("Start");
 			this.setNodeReferences();
 			this.dataInitialize();
 			this.addEventListeners();
@@ -28,50 +28,67 @@ var LyricController = {
 		};
 
 		o.dataInitialize = function () {
-			this.addLyrics();
+			this.updateLyrics();
 		};
 
-		o.addLyrics = function () {
-			var _lrcStr = "<p>" + audio_lrc[0].content + "</p>";
-			this.lrcFlags[0] = false;
+		o.updateLyrics = function () {
+			this.lyricText.innerHTML = "";
+			var _lrcStr = null;
+			this.maxDuration = 0;
 
-			for (var i = 1; i < audio_lrc.length; i++) {
-				_lrcStr += "<p>" + audio_lrc[i].content + "</p>";
+			for (var i = 0; i < audio_lrc.length; i++) {
+				var _duration = ((parseFloat(audio_lrc[i].endTime) - parseFloat(audio_lrc[i].startTime) + 0.5) / Math.abs(o.audioSource.playbackRate)).toFixed(3);
+				this.maxDuration = (this.maxDuration < _duration) ? _duration : this.maxDuration;
+				_duration = _duration + "s";
+				if (_lrcStr == null) {
+					_lrcStr = "<p style='animation-duration: " + _duration + "; -webkit-animation-duration: " + _duration + "'>" + audio_lrc[i].content + "</p>";
+				} else {
+					_lrcStr += "<p style='animation-duration: " + _duration + "; -webkit-animation-duration: " + _duration + "'>" + audio_lrc[i].content + "</p>";
+				}
 				this.lrcFlags[i] = false;
 			}
-			this.lyricText.innerHTML += _lrcStr;
 
+			this.maxDuration = this.maxDuration * 1000;
+			console.log(this.maxDuration);
+			this.lyricText.innerHTML += _lrcStr;
 			this.lyrics = document.querySelectorAll(".lyric-text > p");
 		};
 
 		o.addEventListeners = function () {
 			this.audioSource.addEventListener("timeupdate", this.onTimeUpdate);
+			this.audioSource.addEventListener("ratechange", this.onRateChange);
 		};
 
 		o.onTimeUpdate = function () {
-			// console.log(o.audioSource.currentTime);
+			o.findCurrentLrc();
+		};
+
+		o.findCurrentLrc = function () {
 			for (var i = 0; i < audio_lrc.length; i++) {
 				if (o.audioSource.currentTime <=  parseFloat(audio_lrc[i].endTime) &&
 					o.audioSource.currentTime >= parseFloat(audio_lrc[i].startTime) &&
 					o.lrcFlags[i] == false) {
 					o.lrcFlags[i] = true;
 					o.showCurrentLrc(i);
+					break;
 				}
 			}
-		};
+		}
 
 		o.showCurrentLrc = function (i) {
-			var _duration = (parseFloat(audio_lrc[i].endTime) - parseFloat(audio_lrc[i].startTime) + 2) / Math.abs(o.audioSource.playbackRate);
-			o.lyrics[i].style.animationDuration =  _duration + "s";
 			o.lyrics[i].className = "currentLrc";
 			window.setTimeout(function () {
 				o.clearCurrentLrc(i);
-			}, _duration * 1000);
+			}, o.maxDuration);
 		};
 
 		o.clearCurrentLrc = function (i) {
 			o.lyrics[i].removeAttribute("class");
 			o.lrcFlags[i] = false;
+		};
+
+		o.onRateChange = function () {
+			o.updateLyrics();
 		};
 
 		o.initialize();
