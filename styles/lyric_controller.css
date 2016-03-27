@@ -60,7 +60,7 @@ noscript.tip-overlay {
     max-width: 414px;
     min-width: 320px;
     /* height: 736px; */
-    /* height: 480px; */
+     /*height: 480px; */
     height: 100%;
     transform: translate(-50%, -50%);
     overflow: hidden;
@@ -108,7 +108,6 @@ noscript.tip-overlay {
 
 .lyric-text {
     flex: 1;
-    /*overflow: hidden;*/
     position: relative;
 }
 
@@ -126,10 +125,19 @@ noscript.tip-overlay {
     }
 
 @keyframes moveLrc {
-    0%   { transform: translateY(450%); opacity: 0;}
+    0%   { transform: translateY(18vh); opacity: 0;}
     30%  { opacity: 1;}
     70%  { opacity: 1;}
-    100% { transform: translateY(-650%); opacity: 0;}
+    100% { transform: translateY(-36vh); opacity: 0;}
+}
+
+/*TEST*/
+.lyric-text > p:nth-child(10) {
+    /*opacity: 1;*/
+    /*transform: translateY(-50%);*/
+    /*transform: translateY(18vh);*/
+    /*transform: translateY(-36vh);*/
+    /*transform: translateY(0%);*/
 }
 
 /* TEMP */
