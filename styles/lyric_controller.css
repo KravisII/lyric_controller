@@ -7,10 +7,6 @@ body {
     /*-webkit-backface-visibility: hidden;*/
 }
 
-body.disableScroll {
-    /* overflow: hidden; */
-}
-
 .tip-overlay {
     position: fixed;
     height: 100%;
@@ -57,7 +53,7 @@ noscript.tip-overlay {
     top: 50%;
     left: 50%;
     width: 100%;
-    /*max-width: 414px;*/
+    max-width: 414px;
     min-width: 320px;
     /* height: 736px; */
      /*height: 480px; */
@@ -123,7 +119,6 @@ noscript.tip-overlay {
     display: flex;
     justify-content: space-around;
     flex-flow: column;
-
 }
 
 .lyric-title {
@@ -146,18 +141,18 @@ noscript.tip-overlay {
     text-align: center;
 }
 
-    .lyric-text > p {
-        position: absolute;
-        top: 50%;
-        width: 100%;
-        opacity: 0;
-        will-change: transform, opacity;
-    }
+.lyric-text > p {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    opacity: 0;
+    will-change: transform, opacity;
+}
 
-    .lyric-text > p.currentLrc {
-        animation-name: moveLrc;
-        animation-timing-function: linear;
-    }
+.lyric-text > p.currentLrc {
+    animation-name: moveLrc;
+    animation-timing-function: linear;
+}
 
 @keyframes moveLrc {
     0%   { transform: translateY(18vh); opacity: 0;}
