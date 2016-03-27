@@ -87,7 +87,6 @@ noscript.tip-overlay {
     z-index: 1;
     color: #ffffff;
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.42); 
-    text-align: center;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
 }
@@ -100,15 +99,61 @@ noscript.tip-overlay {
     z-index: 0;
 }
 
+/*                    <div class="lyric-info">
+                        <div class="lyric-albumart"></div>
+                        <h2 class="lyric-title">Shiver</h2>
+                        <h3 class="lyric-author">Lucy Rose</h3>
+                      </div>*/
+
 .lyric-info {
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(255,255,255,0.2);
+    -webkit-backdrop-filter: blur(5px);
     flex: none;
     position: relative;
+    /*padding: 0 20px;*/
+    display: flex;
 }
+
+.lyric-info > div {
+
+}
+
+.lyric-albumart {
+    height: 80px;
+    width: 80px;
+    background-color: red;
+    flex: none;
+    margin-right: 1em;
+    background: url("../others/Like%20I%20Used%20To.jpg") no-repeat 50% 50%;
+    background-size: contain;
+}
+
+.music-info {
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    flex-flow: column;
+
+}
+
+.lyric-title {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.lyric-author {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 300;
+    color: #ddd;
+}
+
 
 .lyric-text {
     flex: 1;
     position: relative;
+    text-align: center;
 }
 
     .lyric-text > p {
