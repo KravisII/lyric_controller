@@ -1,6 +1,6 @@
 html {
-	/*Copy from [Hux 黄玄's Github](https://github.com/Huxpro/huxpro.github.io)*/
-	font-family: -apple-system, -apple-system-font, "Helvetica Neue", "Arial", "PingFang SC", "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "Microsoft JhengHei", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", "WenQuanYi Micro Hei", SimSun, sans-serif;
+    /*Copy from [Hux 黄玄's Github](https://github.com/Huxpro/huxpro.github.io)*/
+    font-family: -apple-system, -apple-system-font, "Helvetica Neue", "Arial", "PingFang SC", "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "Microsoft JhengHei", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", "WenQuanYi Micro Hei", SimSun, sans-serif;
 }
 body {
     background: #333;
@@ -32,7 +32,8 @@ noscript.tip-overlay {
     box-sizing: border-box;
     text-align: center;
     padding: 0em 1em;
-    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
     position: relative;
     top: 30%;
 }
@@ -58,7 +59,8 @@ noscript.tip-overlay {
     /* height: 736px; */
      /*height: 480px; */
     height: 100%;
-    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
     overflow: hidden;
     background-color: #aaa;
 }
@@ -89,8 +91,15 @@ noscript.tip-overlay {
 
 .lyric-controller-inner {
     height: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
     position: relative;
     z-index: 0;
 }
@@ -98,9 +107,15 @@ noscript.tip-overlay {
 .lyric-info {
     background-color: rgba(255,255,255,0.42);
     -webkit-backdrop-filter: blur(15px);
-    flex: none;
+    -webkit-box-flex: 0;
+    -webkit-flex: none;
+        -ms-flex: none;
+            flex: none;
     position: relative;
     z-index: 100;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
 }
 
@@ -108,17 +123,30 @@ noscript.tip-overlay {
     height: 80px;
     width: 80px;
     background-color: red;
-    flex: none;
+    -webkit-box-flex: 0;
+    -webkit-flex: none;
+        -ms-flex: none;
+            flex: none;
     margin-right: 1em;
     background: url("../others/Like%20I%20Used%20To.jpg") no-repeat 50% 50%;
     background-size: contain;
 }
 
 .music-info {
-    flex: 1;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-around;
-    flex-flow: column;
+    -webkit-justify-content: space-around;
+        -ms-flex-pack: distribute;
+            justify-content: space-around;
+    -webkit-flex-flow: column;
+        -ms-flex-flow: column;
+            flex-flow: column;
 }
 
 .lyric-title {
@@ -136,7 +164,10 @@ noscript.tip-overlay {
 
 
 .lyric-text {
-    flex: 1;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
     position: relative;
     text-align: center;
 }
@@ -150,15 +181,24 @@ noscript.tip-overlay {
 }
 
 .lyric-text > p.currentLrc {
-    animation-name: moveLrc;
-    animation-timing-function: linear;
+    -webkit-animation-name: moveLrc;
+            animation-name: moveLrc;
+    -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+}
+
+@-webkit-keyframes moveLrc {
+    0%   { -webkit-transform: translateY(18vh); transform: translateY(18vh); opacity: 0;}
+    30%  { opacity: 1;}
+    70%  { opacity: 1;}
+    100% { -webkit-transform: translateY(-30vh); transform: translateY(-30vh); opacity: 0;}
 }
 
 @keyframes moveLrc {
-    0%   { transform: translateY(18vh); opacity: 0;}
+    0%   { -webkit-transform: translateY(18vh); transform: translateY(18vh); opacity: 0;}
     30%  { opacity: 1;}
     70%  { opacity: 1;}
-    100% { transform: translateY(-30vh); opacity: 0;}
+    100% { -webkit-transform: translateY(-30vh); transform: translateY(-30vh); opacity: 0;}
 }
 
 /*TEST*/
@@ -174,12 +214,12 @@ noscript.tip-overlay {
 .audio-source {
     width: 100%;
     height: 73px;
-    flex: none;
+    -webkit-box-flex: 0;
+    -webkit-flex: none;
+        -ms-flex: none;
+            flex: none;
     background-color: rgba(255,255,255,0.42);
     -webkit-backdrop-filter: blur(15px);
     position: relative;
     z-index: 100;
 }
-
-
-

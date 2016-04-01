@@ -1,4 +1,4 @@
-# lyric_controller - 1.2
+# lyric_controller - 1.3
 [This is demo](http://www.kravis.me/lyric_controller)
 
 ### Version 1 基本的歌词显示界面
@@ -8,9 +8,11 @@
 - [x] #### Mar 25, 2016 Version 1.1
 	显示当前歌词。
 
-- [ ] #### Mar 28, 2016 Version 1.2
-	各项优化
+- [x] #### Mar 28, 2016 Version 1.2
+	各项优化。
 
+- [x] #### Mar 28, 2016 Version 1.3
+	增加 CSS prefix。
 
 ### 待优化
 - [x] `audioSource.playbackRate == 8` 时可能会漏掉部分歌词；
