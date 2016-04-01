@@ -7,7 +7,6 @@ var LyricController = {
 		o.lrcStack = [];
 		o.lrcFlags = Array();
 		o.maxDuration = 0;
-		// o.finded = false;
 
 		// methods
 		o.initialize = function () {
@@ -15,11 +14,6 @@ var LyricController = {
 			this.dataInitialize();
 			this.addEventListeners();
 		};
-
-		// o.deviceDetection = function () {};
-		// o.interfaceControl = function () {};
-		// o.playRateControl = function () {};
-		// o.autoLoadControl = function () {};
 
 		o.setNodeReferences = function () {
 			// lyric-controller: 

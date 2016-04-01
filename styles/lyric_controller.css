@@ -4,7 +4,6 @@ html {
 }
 body {
     background: #333;
-    /*-webkit-backface-visibility: hidden;*/
 }
 
 .tip-overlay {
@@ -56,8 +55,6 @@ noscript.tip-overlay {
     width: 100%;
     max-width: 414px;
     min-width: 320px;
-    /* height: 736px; */
-     /*height: 480px; */
     height: 100%;
     -webkit-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
@@ -199,15 +196,6 @@ noscript.tip-overlay {
     30%  { opacity: 1;}
     70%  { opacity: 1;}
     100% { -webkit-transform: translateY(-30vh); transform: translateY(-30vh); opacity: 0;}
-}
-
-/*TEST*/
-.lyric-text > p:nth-child(10) {
-    /*opacity: 1;*/
-    /*transform: translateY(-50%);*/
-    /*transform: translateY(18vh);*/
-    /*transform: translateY(-36vh);*/
-    /*transform: translateY(0%);*/
 }
 
 /* TEMP */
